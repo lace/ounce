@@ -1,4 +1,5 @@
 import unittest
+import math
 from . import core as ounce
 
 
@@ -80,10 +81,8 @@ class TestUnits(unittest.TestCase):
             )
 
     def test_convert(self):
-        import numpy as np
-
         self.assertEqual(ounce.convert(25, "cm", "mm")[0], 250)
-        self.assertEqual(ounce.convert(180, "deg", "rad")[0], np.pi)
+        self.assertEqual(ounce.convert(180, "deg", "rad")[0], math.pi)
         self.assertAlmostEqual(ounce.convert(-10, "ft", "in")[0], -120)
 
         self.assertEqual(ounce.convert(25, "cm", "mm")[1], "mm")
@@ -91,8 +90,6 @@ class TestUnits(unittest.TestCase):
         self.assertAlmostEqual(ounce.convert(-10, "ft", "in")[1], "in")
 
     def test_conversion_factors(self):
-        import numpy as np
-
         self.assertAlmostEqual(ounce.convert(25, "cm", "m")[0], 0.25)
         self.assertAlmostEqual(ounce.convert(25, "cm", "cm")[0], 25)
         self.assertAlmostEqual(ounce.convert(25, "cm", "mm")[0], 250)
@@ -114,7 +111,7 @@ class TestUnits(unittest.TestCase):
         self.assertAlmostEqual(
             ounce.convert(10, "kg", "stone")[0], 1.57473
         )  # from google
-        self.assertAlmostEqual(ounce.convert(90, "deg", "rad")[0], np.pi / 2)
+        self.assertAlmostEqual(ounce.convert(90, "deg", "rad")[0], math.pi / 2.0)
         self.assertAlmostEqual(ounce.convert(90, "deg", "deg")[0], 90)
         self.assertAlmostEqual(ounce.convert(30, "min", "sec")[0], 30 * 60)
         self.assertAlmostEqual(ounce.convert(30, "min", "minutes")[0], 30)
