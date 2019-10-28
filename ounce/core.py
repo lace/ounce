@@ -285,4 +285,3 @@ weights = units_in_class("weight")
 angles = units_in_class("angle")
 times = units_in_class("time")
 time_rates = units_in_class("time_rate")
-
