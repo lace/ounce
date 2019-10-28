@@ -75,23 +75,6 @@ _default_units = {
 }
 
 
-def all_units():
-    """
-    Return a list of all supported units.
-
-    """
-    return _ureg.keys()
-
-
-def all_units_classes():
-    """
-    Return a list of all supported units classes, e.g.
-    'length', 'weight', 'angle, 'time', 'time_rate'.
-
-    """
-    return list(set([item[0] for item in _ureg.values()]))
-
-
 def units_class(units):
     """
     Returns 'length', 'weight', 'angle', 'time', or 'time_rate'.
@@ -270,6 +253,8 @@ def prettify(value, units, precision=None):
     )
 
 
+all_units = _ureg.keys()
+all_units_classes = list(set([item[0] for item in _ureg.values()]))
 lengths = units_in_class("length")
 weights = units_in_class("weight")
 angles = units_in_class("angle")

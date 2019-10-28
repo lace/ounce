@@ -12,6 +12,15 @@ dependencies. A faster and less fancy counterpart to [Pint][].
 .. automodule:: ounce
     :members:
 
+.. data:: all_units
+
+    Return a list of all supported units.
+
+.. data:: all_units_classes
+
+    Return a list of all supported units classes, e.g. 'length', 'weight',
+    'angle, 'time', 'time_rate'.
+
 .. data:: lengths
 
     List of all supported length units.
