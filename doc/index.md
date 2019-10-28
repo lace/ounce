@@ -12,11 +12,39 @@ dependencies. A faster and less fancy counterpart to [Pint][].
 .. automodule:: ounce
     :members:
 
+.. data:: all_units
+
+    Return a list of all supported units.
+
+.. data:: all_units_classes
+
+    Return a list of all supported units classes, e.g. 'length', 'weight',
+    'angle, 'time', 'time_rate'.
+
+.. data:: lengths
+
+    List of all supported length units.
+
+.. data:: weights
+
+    List of all supported weight units.
+
+.. data:: angles
+
+    List of all supported angle units.
+
+.. data:: times
+
+    List of all supported time units.
+
+.. data:: time_rates
+
+    List of all supported time-rate units.
+
 ```
 
 
-Versioning
-----------
+## Versioning
 
 This library adheres to [Semantic Versioning][semver].
 
