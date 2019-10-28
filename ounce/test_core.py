@@ -88,6 +88,7 @@ class TestUnits(unittest.TestCase):
         self.assertEqual(ounce.convert(25, "cm", "mm")[1], "mm")
         self.assertEqual(ounce.convert(180, "deg", "rad")[1], "rad")
         self.assertAlmostEqual(ounce.convert(-10, "ft", "in")[1], "in")
+        self.assertAlmostEqual(ounce.convert(None, "ft", "in"), (None, None))
 
     def test_conversion_factors(self):
         self.assertAlmostEqual(ounce.convert(25, "cm", "m")[0], 0.25)
