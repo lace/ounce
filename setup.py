@@ -8,7 +8,7 @@ readme = open("README.md", "rb").read().decode("utf-8")
 setup(
     name="ounce",
     version=version_info["__version__"],
-    description="A simple Python package to manipulate units",
+    description="Fast, simple, non-fancy, and non-magical package for manipulating units of measure",
     long_description=readme,
     long_description_content_type="text/markdown",
     author="Metabolize, Body Labs, and other contributors",

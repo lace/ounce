@@ -1,8 +1,9 @@
 # ounce
 
+`ounce` is a fast, simple, non-fancy, and non-magical package for manipulating
+units of measure.
 
-A simple Python package to manipulate units. Fast. Not fancy. No magic. No
-dependencies. A faster and less fancy counterpart to [Pint][].
+It's a faster and less fancy counterpart to [Pint][].
 
 [pint]: https://pint.readthedocs.io/
 
