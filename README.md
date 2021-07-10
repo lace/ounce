@@ -9,8 +9,10 @@ ounce
 [![docs build](https://img.shields.io/readthedocs/ounce?style=flat-square)][docs build]
 [![code style](https://img.shields.io/badge/code%20style-black-black?style=flat-square)][black]
 
-A simple Python package to manipulate units. Fast. Not fancy. No magic. A
-faster and less fancy counterpart to [Pint][].
+Fast, simple, non-fancy, and non-magical package for manipulating units of
+measure.
+
+It's a faster and less fancy counterpart to [Pint][].
 
 [pypi]: https://pypi.org/project/ounce/
 [coverage]: https://github.com/lace/ounce/blob/master/.coveragerc
