@@ -1,6 +1,11 @@
 Changelog
 =========
 
+## 1.1.1 (Jul. 16, 2020)
+
+Same as 1.1.0.
+
+
 ## 1.1.0 (Oct 28, 2019)
 
 - Build documentation.
