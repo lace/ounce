@@ -1,8 +1,6 @@
 import math
-
+import ounce
 import pytest
-
-from . import core as ounce
 
 
 def test_all_units():
