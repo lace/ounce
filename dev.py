@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env -S poetry run python
 
 import os
 import click
@@ -19,8 +19,8 @@ def cli():
 
 
 @cli.command()
-def init():
-    execute("pip3 install --upgrade -r requirements_dev_py3.txt")
+def install():
+    execute("poetry install --remove-untracked")
 
 
 @cli.command()
@@ -37,11 +37,6 @@ def coverage():
 def coverage_report():
     execute("coverage html")
     execute("open htmlcov/index.html")
-
-
-@cli.command()
-def test_both():
-    execute("python3 -m pytest")
 
 
 @cli.command()
@@ -73,7 +68,7 @@ def doc_open():
 @cli.command()
 def publish():
     execute("rm -rf dist/")
-    execute("python3 setup.py sdist bdist_wheel")
+    execute("poetry build")
     execute("twine upload dist/*")
 
 

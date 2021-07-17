@@ -8,7 +8,7 @@ It's a faster and less fancy counterpart to [Pint][].
 [pint]: https://pint.readthedocs.io/
 
 
-```eval_rst
+```{eval-rst}
 
 .. automodule:: ounce
     :members:
