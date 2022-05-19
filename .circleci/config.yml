@@ -1,20 +1,36 @@
 version: 2.1
 
+with_python: &with_python
+  docker:
+    - image: cimg/python:3.7
+
+install_poetry: &install_poetry
+  run:
+    name: Install Poetry
+    command: |
+      pip install poetry==1.1.7
+      poetry --version
+
+install_python_deps: &install_python_deps
+  run:
+    name: Install python dependencies
+    command: poetry install --no-ansi --no-interaction
+
+show_versions: &show_versions
+  run:
+    name: Show versions
+    command: poetry show
+
 jobs:
   main:
-    docker:
-      - image: circleci/python:3
+    <<: *with_python
 
     steps:
       - checkout
 
-      - run:
-          name: Install python dependencies
-          command: |
-            pip install poetry==1.1.7
-            poetry --version
-            poetry install --no-ansi --no-interaction
-            poetry show
+      - *install_poetry
+      - *install_python_deps
+      - *show_versions
 
       - run:
           name: Run tests
@@ -22,27 +38,47 @@ jobs:
           command: ./dev.py coverage
 
       - run:
+          name: Run the build
+          when: always
+          command: poetry build
+
+      - run:
           name: Run the doc build
           when: always
           command: ./dev.py doc
+
+      - store_artifacts:
+          path: dist
+
+  lint:
+    <<: *with_python
+
+    steps:
+      - checkout
+
+      - *install_poetry
+      - *install_python_deps
+      - *show_versions
 
       - run:
           name: Check lint
           when: always
           command: ./dev.py lint
 
+  format:
+    <<: *with_python
+
+    steps:
+      - checkout
+
+      - *install_poetry
+      - *install_python_deps
+      - *show_versions
+
       - run:
           name: Check code format
           when: always
           command: ./dev.py black-check
-
-      - run:
-          name: Run the build
-          when: always
-          command: poetry build
-
-      - store_artifacts:
-          path: dist
 
 workflows:
   version: 2
@@ -50,6 +86,8 @@ workflows:
   on-commit:
     jobs:
       - main
+      - lint
+      - format
 
   daily:
     triggers:
@@ -60,3 +98,5 @@ workflows:
               only: main
     jobs:
       - main
+      - lint
+      - format
