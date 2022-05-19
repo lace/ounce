@@ -270,7 +270,7 @@ def prettify(value, units, precision=None):
             )
         else:
             # Work around weird floating point rounding issues
-            nearest = 1.0 / 10 ** precision
+            nearest = 1.0 / 10**precision
         return round_to(value, nearest), units
 
     return round_value(*convert_to_system_default(value, units)) + round_value(
