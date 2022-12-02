@@ -36,7 +36,7 @@ coverage = "6.3.3"
 flake8-import-order = "0.18.2"
 Sphinx = "4.2.0"
 sphinxcontrib-apidoc = "0.3.0"
-myst-parser = "0.17.2"
+myst-parser = "0.18.1"
 
 [build-system]
 # Lint requires setuptools.
